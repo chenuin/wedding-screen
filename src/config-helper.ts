@@ -18,6 +18,7 @@ const parsedQuestions = configJson.game.questions.map((q, i) => {
   return {
     id: i,
     text: q.text,
+    image: q.image,
     options: parsedOptions.map((o) => ({ id: o.id, text: o.text })),
     answers: parsedOptions.filter((o) => o.isAnswer).map((o) => o.id),
   };

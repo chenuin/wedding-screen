@@ -34,7 +34,7 @@ function init() {
         correctCount INT, incorrectCount INT, correctRate REAL, createAt INT);
       CREATE TABLE IF NOT EXISTS vote (
         playerId TEXT, questionId INT, optionId INT, time INT, isAnswer INT);
-      CREATE TABLE IF NOT EXISTS question (id INT, content TEXT);
+      CREATE TABLE IF NOT EXISTS question (id INT, content TEXT, image TEXT);
       CREATE TABLE IF NOT EXISTS option (
         id INT, questionId INT, content TEXT, isAnswer INT);
       COMMIT;
@@ -115,9 +115,9 @@ function clearComment() {
 
 function insertQuestions(questions: typeof config.game.questions) {
   const insertQuestionsPromise = new Promise((resolve, reject) => {
-    const stmt = db.prepare('INSERT INTO question VALUES (?, ?)');
+    const stmt = db.prepare('INSERT INTO question VALUES (?, ?, ?)');
     for (const question of questions) {
-      stmt.run(question.id, question.text);
+      stmt.run(question.id, question.text, question.image);
     }
     stmt.finalize((err) => err ? reject(err) : resolve());
   });

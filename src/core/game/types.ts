@@ -40,6 +40,7 @@ export type Option = Readonly<{
 export type Question = Readonly<{
   id: number,
   text: string,
+  image: string,
   options: ReadonlyArray<Option>,
   answer: Option,
 }>;

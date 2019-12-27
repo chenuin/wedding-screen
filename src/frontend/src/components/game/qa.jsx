@@ -52,10 +52,13 @@ function Option(props) {
 
 function QuestionBlock({ question }) {
   return (
-    <div
-      className="d-flex justify-content-center align-items-center mb-0"
-      style={{ flex: 3 }}>
-      <h4>{question.text}</h4>
+    <div>
+      <div
+        className="d-flex justify-content-center align-items-center mb-0"
+        style={{ flex: 3 }}>
+        <h4>{question.text}</h4>
+      </div>
+      <img src={question.image} style={{ width: '100%' }}/>
     </div>
   )
 }
