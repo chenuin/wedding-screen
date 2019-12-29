@@ -16,3 +16,20 @@ body {
   font-family: TaipeiSansTC, sans-serif;
   font-weight: normal;
 }
+
+.bg-q1 {
+  background-color: #FFAAD5;
+}
+.bg-q2 {
+  background-color: #FFBD9D;
+}
+.bg-q3 {
+  background-color: #ADFEDC;
+}
+.bg-q4 {
+  background-color: #97CBFF;
+}
+.img-qa {
+  max-height: 40vh;
+  width: auto;
+}

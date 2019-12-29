@@ -6,15 +6,15 @@ import CountUp from 'react-countup';
 
 
 const BG = [
-  'bg-info',
-  'bg-success',
-  'bg-danger',
-  'bg-warning'
+  '#FFAAD5',
+  '#FFBD9D',
+  '#ADFEDC',
+  '#97CBFF'
 ];
 
 function Option(props) {
   const { order, text, isSelect, isAnswer, onClick, showAnswer, total, count } = props;
-  const classes = [showAnswer && !isAnswer ? 'bg-secondary' : BG[order]];
+  const classes = [showAnswer && !isAnswer ? 'bg-secondary' : ''];
   if (showAnswer) {
     classes.push('progress-bar-striped')
   }
@@ -29,7 +29,8 @@ function Option(props) {
           opacity: 0.7,
           left: 0, width: showAnswer ? `${percent || 0}%` : '100%',
           transition: `width ${showAnswer ? '500ms' : '0ms'} ease-in 900ms, background 200ms ease-in`,
-          transitionDelay: '200ms'
+          transitionDelay: '200ms',
+          backgroundColor: BG[order]
         }}>
 
       </div>
@@ -58,7 +59,10 @@ function QuestionBlock({ question }) {
         style={{ flex: 3 }}>
         <h4>{question.text}</h4>
       </div>
-      <img src={question.image} style={{ width: '100%' }}/>
+      {
+        question.image &&
+        <img src={question.image} style={{ maxHeight: '40vh', width: 'auto' }} />
+      }
     </div>
   )
 }
